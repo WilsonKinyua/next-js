@@ -1,6 +1,4 @@
 import MeetupList from "../components/meetups/MeetupList";
-import Layout from "../components/layout/Layout";
-import Head from "next/head";
 
 const DUMMY_MEETUPS = [
   {
@@ -20,15 +18,5 @@ const DUMMY_MEETUPS = [
 ];
 
 export default function HomePage() {
-  return (
-    <>
-      <Head>
-        <title>Nextjs is awesome</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" key='title' />
-      </Head>
-      <Layout>
-        <MeetupList meetups={DUMMY_MEETUPS} />
-      </Layout>
-    </>
-  );
+  return <MeetupList meetups={DUMMY_MEETUPS} />;
 }
