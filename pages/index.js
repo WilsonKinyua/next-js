@@ -17,6 +17,24 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-export default function HomePage() {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+// export async function getServerSideProps() {
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//   };
+// }
+
+export async function getStaticProps() {
+  // fetch data
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+    revalidate: 1, // rebuild or refetch data after every 1 sec
+  };
+}
+
+export default function HomePage(props) {
+  return <MeetupList meetups={props.meetups} />;
 }
